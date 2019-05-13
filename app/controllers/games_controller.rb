@@ -13,15 +13,17 @@ class GamesController < ApplicationController
   def score
     @word = params[:word]
     @letters = params[:letters]
+    @score = 0
 
     if word_check?(@word.upcase, @letters)
       if english_word?(@word)
-        @sentence = "Congratulations ! #{@word} is a valid English word!"
+        @sentence = "Congratulations ! #{@word.upcase} is a valid English word!"
+        @score += @word.length
       else
-        @sentence = "Sorry but #{@word} does not seem to be an English word"
+        @sentence = "Sorry but #{@word.upcase { |n| }} does not seem to be an English word"
       end
     else
-      @sentence = "Sorry but #{@word} can't be build out of #{@letters}"
+      @sentence = "Sorry but #{@word.upcase} can't be build out of #{@letters}"
     end
   end
 
