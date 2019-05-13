@@ -1,5 +1,6 @@
 <h1>Result</h1>
 <p><%= @sentence %></p>
-<p>Your score: <%= session[:score] %></p>
+<p>Score for this game: <%= @current_score %></p>
+<p>Your total score: <%= session[:score] %></p>
 <br>
 <%= link_to "Play again", new_path %>
